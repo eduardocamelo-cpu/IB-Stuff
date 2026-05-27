@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizaciones del PAI - Agilidad de Aprendizaje</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen transition-colors duration-300">
+
+  <!-- Header Banner -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-900 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="bg-brand-600 text-white p-2 rounded-xl shadow-lg shadow-brand-500/20">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h1 class="text-lg font-bold bg-gradient-to-r from-brand-600 to-indigo-600 bg-clip-text text-transparent dark:from-brand-500 dark:to-indigo-400">
+              Actualizaciones del PAI
+            </h1>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Marco de Agilidad en el Aprendizaje</p>
+          </div>
+        </div>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-1 lg:space-x-2 text-sm font-medium">
+          <a href="#timeline" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Línea de Tiempo</a>
+          <a href="#four-areas" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">4 Áreas de Cambio</a>
+          <a href="#integrated-core" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Tronco Común</a>
+          <a href="#themes" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Temas PAI</a>
+          <a href="#concepts" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Conceptos</a>
+          <a href="#assessment" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Evaluación</a>
+        </nav>
+
+        <div class="flex items-center space-x-2">
+          <!-- Dark Mode Toggle -->
+          <button id="themeToggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition" aria-label="Toggle Theme">
+            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+            <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+          
+          <!-- Mobile Menu Button -->
+          <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 px-4 py-3 space-y-1">
+      <a href="#timeline" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">1. Línea de Tiempo</a>
+      <a href="#four-areas" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">2. Cuatro Áreas de Cambio</a>
+      <a href="#integrated-core" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">3. Tronco Común Integrado</a>
+      <a href="#themes" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">4. Temas del PAI</a>
+      <a href="#concepts" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">5. Explorador de Conceptos</a>
+      <a href="#assessment" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">6. Cambios en Evaluación</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+    
+    <!-- Hero / Intro -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <span class="px-3 py-1 text-xs font-semibold tracking-wider text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/50 border border-brand-200 dark:border-brand-900 rounded-full uppercase">
+        Resumen de la Futura Hoja de Ruta
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        Infografía de Mejoras del PAI
+      </h2>
+      <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        Una guía visual y simplificada que resume las principales actualizaciones estructurales, pedagógicas y de sistemas, diseñadas para aumentar la autonomía de los colegios y reducir la rigidez del programa.
+      </p>
+    </div>
+
+    <!-- 1. Timeline Section -->
+    <section id="timeline" class="scroll-mt-24 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 dark:border-slate-800/50 transition">
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-6 border-b border-slate-100 dark:border-slate-800">
+        <div class="space-y-1">
+          <div class="flex items-center space-x-2 text-brand-600 dark:text-brand-400">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+            <span class="text-sm font-bold uppercase tracking-wider">Hitos clave</span>
+          </div>
+          <h3 class="text-2xl font-bold">1. ¿Cuándo ocurren los cambios?</h3>
+        </div>
+        <p class="text-sm text-slate-500 dark:text-slate-400 max-w-sm mt-2 md:mt-0">
+          La implementación se distribuye a lo largo de varios años para permitir que los colegios adapten sus dinámicas pedagógicas de manera orgánica.
+        </p>
+      </div>
+
+      <!-- Horizontal Timeline for Large Screen / Vertical on Mobile -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- Connecting Line for desktop -->
+        <div class="hidden md:block absolute top-10 left-16 right-16 h-1 bg-slate-100 dark:bg-slate-800 -z-10"></div>
+        
+        <!-- 2027 -->
+        <div class="relative flex flex-col items-center text-center p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition group">
+          <div class="w-14 h-14 rounded-full bg-brand-500/10 border-4 border-white dark:border-slate-900 text-brand-600 dark:text-brand-400 flex items-center justify-center font-extrabold text-lg shadow-md mb-4 group-hover:scale-110 transition duration-300">
+            2027
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Lanzamiento de IB Exchange</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Una plataforma digital interactiva totalmente nueva sustituye a las guías estáticas en PDF. Se publican guías de asignaturas interactivas con recursos adaptables y unidades de ejemplo.
+          </p>
+        </div>
+
+        <!-- 2028 -->
+        <div class="relative flex flex-col items-center text-center p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition group">
+          <div class="w-14 h-14 rounded-full bg-emerald-500/10 border-4 border-white dark:border-slate-900 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-extrabold text-lg shadow-md mb-4 group-hover:scale-110 transition duration-300">
+            2028
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Inicio de la Enseñanza</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Los colegios comienzan oficialmente la enseñanza con el marco del PAI mejorado. Entran en vigor los nuevos formatos de planificadores de unidad simplificados, criterios de evaluación actualizados y el tronco común más flexible.
+          </p>
+        </div>
+
+        <!-- 2030 -->
+        <div class="relative flex flex-col items-center text-center p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition group">
+          <div class="w-14 h-14 rounded-full bg-indigo-500/10 border-4 border-white dark:border-slate-900 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-extrabold text-lg shadow-md mb-4 group-hover:scale-110 transition duration-300">
+            2030
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Primeros eAssessments</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Se llevan a cabo los primeros exámenes de evaluación externa digital bajo el nuevo modelo. Se introducen formatos más interactivos diseñados para el nuevo esquema de tres criterios.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Four Areas of Change -->
+    <section id="four-areas" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-indigo-600 dark:text-indigo-400">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Fundamentos</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">2. Cuatro Áreas de Cambio</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          Las mejoras del programa se dividen en cuatro secciones fundamentales diseñadas para mejorar la claridad, la flexibilidad y la utilidad directa para los docentes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-blue-500/50 dark:hover:border-blue-500/30 transition flex flex-col justify-between h-full">
+          <div>
+            <div class="w-12 h-12 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-4 font-bold">
+              📘
+            </div>
+            <h4 class="text-lg font-bold mb-2">Guía del Programa Mejorada</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Reglas globales más claras con flexibilidad estructural en los primeros años (PAI 1-3), objetivos generales condensados y formatos rediseñados.
+            </p>
+          </div>
+          <span class="text-xs text-blue-600 dark:text-blue-400 mt-4 font-semibold flex items-center gap-1">Enfoque: Estructura Global <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/30 transition flex flex-col justify-between h-full">
+          <div>
+            <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-xl flex items-center justify-center mb-4 font-bold">
+              📗
+            </div>
+            <h4 class="text-lg font-bold mb-2">Guía de Asignatura Mejorada</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Orientaciones prácticas enfocadas al profesor. Pasa de conceptos abstractos a estrategias de aula más accesibles y planificaciones dinámicas.
+            </p>
+          </div>
+          <span class="text-xs text-emerald-600 dark:text-emerald-400 mt-4 font-semibold flex items-center gap-1">Enfoque: Práctica Docente <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-amber-500/50 dark:hover:border-amber-500/30 transition flex flex-col justify-between h-full">
+          <div>
+            <div class="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 rounded-xl flex items-center justify-center mb-4 font-bold">
+              📊
+            </div>
+            <h4 class="text-lg font-bold mb-2">Modelo de Evaluación Mejorado</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Paso de cuatro a tres criterios de evaluación unificados. Introduce rúbricas simplificadas y frases en primera persona centradas en el alumno ("Puedo").
+            </p>
+          </div>
+          <span class="text-xs text-amber-600 dark:text-amber-400 mt-4 font-semibold flex items-center gap-1">Enfoque: Claridad Evaluativa <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-purple-500/50 dark:hover:border-purple-500/30 transition flex flex-col justify-between h-full">
+          <div>
+            <div class="w-12 h-12 bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-4 font-bold">
+              🌐
+            </div>
+            <h4 class="text-lg font-bold mb-2">Experiencia de Usuario Mejorada</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              La plataforma interactiva IB Exchange centraliza los recursos curriculares. Permite un acceso más ágil que los antiguos manuales estáticos en PDF.
+            </p>
+          </div>
+          <span class="text-xs text-purple-600 dark:text-purple-400 mt-4 font-semibold flex items-center gap-1">Enfoque: Plataforma Digital <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The Integrated Core -->
+    <section id="integrated-core" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-rose-600 dark:text-rose-400">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Pedagogía</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">3. El Tronco Común Integrado</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          Los cuatro pilares esenciales del PAI siguen siendo obligatorios, pero se elimina la burocracia en su planificación. El IB pasa de un modelo de mero cumplimiento estricto a uno que fomenta la creatividad del centro escolar.
+        </p>
+      </div>
+
+      <!-- Core Pillars Tabs -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-100 dark:border-slate-800 shadow-sm">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8 bg-slate-100 dark:bg-slate-950 p-1.5 rounded-2xl">
+          <button onclick="switchTab('core-tab-idu')" id="btn-core-tab-idu" class="tab-btn px-4 py-3 rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 bg-white dark:bg-slate-900 shadow-sm text-brand-600 dark:text-brand-400">
+            <span class="hidden sm:inline">1.</span> IDU
+          </button>
+          <button onclick="switchTab('core-tab-atl')" id="btn-core-tab-atl" class="tab-btn px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-2">
+            <span class="hidden sm:inline">2.</span> Hab. ATL
+          </button>
+          <button onclick="switchTab('core-tab-ce')" id="btn-core-tab-ce" class="tab-btn px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-2">
+            <span class="hidden sm:inline">3.</span> Comp. Comunitario
+          </button>
+          <button onclick="switchTab('core-tab-projects')" id="btn-core-tab-projects" class="tab-btn px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-2">
+            <span class="hidden sm:inline">4.</span> Proyectos
+          </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <!-- Tab 1: IDU -->
+        <div id="core-tab-idu" class="tab-content block space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Aprendizaje Interdisciplinario</span>
+              <h4 class="text-xl font-bold mt-1">IDU: Formatos Flexibles</h4>
+            </div>
+            <span class="bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-teal-200 dark:border-teal-900">Alta Flexibilidad</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Se ha eliminado el requisito estricto de reservar un bloque horario rígido para una unidad tradicional de varias asignaturas. Los colegios ahora cuentan con total libertad para diseñar la experiencia interdisciplinaria.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-rose-500 uppercase block mb-1">Lo que sigue siendo obligatorio:</span>
+              <p class="text-sm font-medium">Llevar a cabo y evaluar formalmente al menos una experiencia interdisciplinaria al año utilizando los criterios de IDU.</p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-emerald-500 uppercase block mb-1">Lo que se vuelve flexible:</span>
+              <p class="text-sm font-medium">¡El formato! Puede ser una semana intensiva fuera del horario habitual, una salida de campo, un proyecto colaborativo o cualquier estructura que funcione en el colegio.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: ATL -->
+        <div id="core-tab-atl" class="tab-content hidden space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Desarrollo de Habilidades</span>
+              <h4 class="text-xl font-bold mt-1">Habilidades ATL: Planificación Simplificada</h4>
+            </div>
+            <span class="bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-900">Sin redundancias</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Se reduce la fatiga administrativa del docente. Ya no es obligatorio diseñar exhaustivas tablas de planificación mapeando decenas de subcategorías específicas para cada unidad; las habilidades se integran de forma orgánica en la visión general del currículo del centro.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-slate-500 uppercase block mb-1">Los 5 organizadores principales se mantienen</span>
+              <p class="text-sm font-medium">Las categorías clave (Comunicación, Social, Autogestión, Investigación y Pensamiento) permanecen activas como guías fundamentales.</p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-rose-500 uppercase block mb-1">Eliminación de subgrupos</span>
+              <p class="text-sm font-medium">Se retiran las subcategorías detalladas de habilidades para evitar una planificación de mero cumplimiento o "casilla de verificación".</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: CE -->
+        <div id="core-tab-ce" class="tab-content hidden space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Compromiso Comunitario</span>
+              <h4 class="text-xl font-bold mt-1">Compromiso Comunitario: De la Acción al Diálogo</h4>
+            </div>
+            <span class="bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-indigo-200 dark:border-indigo-900">Enfoque reflexivo</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Se transiciona de la tradicional lista de verificación del componente "Servicio como Acción" hacia un enfoque centrado en la creación de relaciones genuinas, el diálogo horizontal y la reflexividad contextual.
+          </p>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+            <div class="space-y-3">
+              <span class="text-xs font-extrabold text-slate-500 uppercase tracking-widest block">4 Objetivos de Aprendizaje Condensados</span>
+              <ol class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-brand-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">1</span> Explorar sistemas y comprender el propio rol en ellos.</li>
+                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-brand-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">2</span> Promover el diálogo y construir relaciones comunitarias orgánicas.</li>
+                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-brand-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">3</span> Implicarse en prácticas reflexivas y autorreflexivas.</li>
+                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-brand-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">4</span> Diseñar y llevar a cabo acciones éticas y con principios.</li>
+              </ol>
+            </div>
+
+            <div class="space-y-3">
+              <span class="text-xs font-extrabold text-slate-500 uppercase tracking-widest block">5 Formas de Compromiso</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Campaña de Promoción (Advocacy)</span>
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Investigación-Acción</span>
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Emprendimiento Social</span>
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Participación Activa</span>
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Creación de Comunidad</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Projects -->
+        <div id="core-tab-projects" class="tab-content hidden space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">Proyectos Personales y Comunitarios</span>
+              <h4 class="text-xl font-bold mt-1">Proyectos Autodirigidos</h4>
+            </div>
+            <span class="bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-900">Proceso Simplificado</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            El Proyecto Comunitario (PAI 3) se simplifica de forma notable para convertirse en un paso preparatorio claro hacia el Proyecto Personal (PAI 5).
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-indigo-500 uppercase block mb-1">Proyecto Comunitario (PAI 3)</span>
+              <p class="text-sm">Se eliminan los criterios formales de evaluación. Se prioriza el desarrollo del alumno mediante la exhibición de diarios de aprendizaje, narrativas personales e hitos de proceso.</p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-brand-500 uppercase block mb-1">Proyecto Personal (PAI 5)</span>
+              <p class="text-sm">Conserva su esquema robusto de evaluación externa y moderación, pero se beneficia de una preparación previa mucho más coordinada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MYP Themes -->
+    <section id="themes" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-emerald-600 dark:text-emerald-400">
+          <i data-lucide="globe" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Indagación</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">4. Seis Nuevos Temas del PAI</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          Sustituyen a los antiguos "Contextos Globales". Brindan contextos más receptivos a la cultura, dinámicos y enraizados en la realidad de la comunidad de aprendizaje.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Theme 1 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-blue-500"></div>
+          <span class="text-xs font-extrabold text-blue-500 uppercase tracking-widest block mb-1">Tema 1</span>
+          <h4 class="text-base font-bold mb-2">Crecimiento a través de las experiencias y la pertenencia</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Indaga en la identidad personal, el desarrollo, los valores individuales, las relaciones humanas y las dinámicas comunitarias estructurales.</p>
+        </div>
+
+        <!-- Theme 2 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
+          <span class="text-xs font-extrabold text-emerald-500 uppercase tracking-widest block mb-1">Tema 2</span>
+          <h4 class="text-base font-bold mb-2">Conexión de tiempo, lugar y espacio</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Se centra en las trayectorias históricas, los entornos, la geografía, los legados locales y las conexiones universales.</p>
+        </div>
+
+        <!-- Theme 3 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-indigo-500"></div>
+          <span class="text-xs font-extrabold text-indigo-500 uppercase tracking-widest block mb-1">Tema 3</span>
+          <h4 class="text-base font-bold mb-2">Expresión de diversas perspectivas</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Explora las manifestaciones culturales, los sistemas de creencias, las dinámicas de creación artística y las narrativas humanas múltiples.</p>
+        </div>
+
+        <!-- Theme 4 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-amber-500"></div>
+          <span class="text-xs font-extrabold text-amber-500 uppercase tracking-widest block mb-1">Tema 4</span>
+          <h4 class="text-base font-bold mb-2">Exploración de innovaciones e impactos</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Analiza los avances científicos, las innovaciones tecnológicas, las soluciones de ingeniería y su huella en el planeta y la sociedad.</p>
+        </div>
+
+        <!-- Theme 5 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-rose-500"></div>
+          <span class="text-xs font-extrabold text-rose-500 uppercase tracking-widest block mb-1">Tema 5</span>
+          <h4 class="text-base font-bold mb-2">Examen de la complejidad de los sistemas</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Decodifica los ecosistemas naturales, las redes económicas, las normativas de gobernanza, las políticas de estado y las estructuras globales.</p>
+        </div>
+
+        <!-- Theme 6 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-purple-500"></div>
+          <span class="text-xs font-extrabold text-purple-500 uppercase tracking-widest block mb-1">Tema 6</span>
+          <h4 class="text-base font-bold mb-2">Forjar el futuro con esperanza</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Incentiva los caminos hacia la sostenibilidad, la toma de acción ética, el liderazgo transformador y la planificación constructiva.</p>
+        </div>
+      </div>
+
+      <!-- Pedagogy note -->
+      <div class="bg-slate-100 dark:bg-slate-900 p-4 rounded-2xl text-xs sm:text-sm text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-800 flex items-center gap-3">
+        <i data-lucide="info" class="w-5 h-5 text-brand-600 dark:text-brand-400 flex-shrink-0"></i>
+        <span><strong>Consejo pedagógico:</strong> El <strong>Tema del PAI</strong> actúa junto a la <strong>Idea Central</strong> para construir las líneas de indagación. El Tema delimita el plano sociocultural humano, mientras que la Idea Central define la comprensión conceptual profunda.</span>
+      </div>
+    </section>
+
+    <!-- 5. Concepts Explorer (Interactive) -->
+    <section id="concepts" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-brand-600 dark:text-brand-400">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Herramienta Interactiva</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">5. Explorador de Conceptos</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          En lugar del antiguo catálogo rígido de "conceptos clave y relacionados", cada grupo de asignaturas cuenta con 12 conceptos de referencia. Los centros escolares tienen total libertad para añadir, adaptar o reorganizarlos.
+        </p>
+      </div>
+
+      <!-- Interactive Concept Board -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-100 dark:border-slate-800 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Sidebar: Choose Subject -->
+        <div class="lg:col-span-4 space-y-4">
+          <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block">1. Selecciona el Grupo de Asignaturas</span>
+          <div class="grid grid-cols-2 lg:grid-cols-1 gap-2" id="subject-selector">
+            <button onclick="selectSubject('ll')" id="sub-ll" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-bold border transition flex items-center justify-between bg-brand-50 border-brand-200 text-brand-700 dark:bg-brand-950 dark:border-brand-900 dark:text-brand-300">
+              Lengua y Literatura <span>L&L</span>
+            </button>
+            <button onclick="selectSubject('la')" id="sub-la" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Adquisición de Lenguas <span>LA</span>
+            </button>
+            <button onclick="selectSubject('is')" id="sub-is" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Individuos y Sociedades <span>I&S</span>
+            </button>
+            <button onclick="selectSubject('sci')" id="sub-sci" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Ciencias <span>Ciencias</span>
+            </button>
+            <button onclick="selectSubject('math')" id="sub-math" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Matemáticas <span>Mat</span>
+            </button>
+            <button onclick="selectSubject('arts')" id="sub-arts" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Artes <span>Artes</span>
+            </button>
+            <button onclick="selectSubject('phe')" id="sub-phe" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Ed. Física y para la Salud <span>PHE</span>
+            </button>
+            <button onclick="selectSubject('design')" id="sub-design" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Diseño <span>Des</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Side: Display 12 Concepts -->
+        <div class="lg:col-span-8 space-y-4 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider">2. Los 12 Conceptos de Referencia</span>
+              <span class="text-xs text-slate-400 font-medium">Conceptos compartidos resaltados en <span class="text-emerald-500 font-bold">Verde</span></span>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="concept-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-100 dark:border-slate-900 mt-4">
+            <h5 class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2 mb-1">
+              <i data-lucide="shuffle" class="w-4 h-4 text-brand-600"></i> Alta Coherencia Intercurricular
+            </h5>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              En total, <strong>22 conceptos</strong> son compartidos por dos o más departamentos, estructurando una red conceptual integrada que facilita enormemente la interdisciplinariedad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Assessment Changes -->
+    <section id="assessment" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-indigo-600 dark:text-indigo-400">
+          <i data-lucide="check-square" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Evaluación</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">6. Nueva Arquitectura de Evaluación</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          El esquema clásico de cuatro criterios independientes se redefine. La evaluación se vuelve más integrada, flexible y adaptada a la progresión del alumnado.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Universal Changes -->
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 bg-brand-50 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 rounded-xl">
+                <i data-lucide="check-circle" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-xl font-extrabold">Mejoras Universales de Evaluación</h4>
+            </div>
+
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold">1</span>
+                <div>
+                  <h5 class="text-sm font-bold">Modelo Unificado de 3 Criterios</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Todas las materias adoptan un esquema simplificado y alineado de tres criterios: <strong>Investigación</strong>, <strong>Aplicación</strong> y <strong>Evaluación</strong>.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold">2</span>
+                <div>
+                  <h5 class="text-sm font-bold">Términos de Instrucción Integrados</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Las definiciones de los términos de instrucción de la evaluación se integran directamente dentro de las rúbricas, facilitando su comprensión contextual.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold">3</span>
+                <div>
+                  <h5 class="text-sm font-bold">Lenguaje centrado en fortalezas ("Puedo")</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Se promueve el uso de enunciados en primera persona ("Puedo...") en las descripciones de nivel, impulsando la autoevaluación activa.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold">4</span>
+                <div>
+                  <h5 class="text-sm font-bold">Aspectos de Criterio Simplificados</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Se reducen y agrupan los diferentes aspectos que componen las rúbricas para agilizar la labor calificadora del profesorado.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Flexible Assessment Pathways -->
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-xl">
+                <i data-lucide="git-branch" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-xl font-extrabold">Rutas Flexibles de Evaluación</h4>
+            </div>
+            
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Los colegios disfrutan de total autonomía académica para decidir cuándo transicionar al alumnado desde una evaluación formativa conceptual a una específica de asignatura.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+                <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wide block mb-1">Ruta PAI 1–3</span>
+                <h5 class="text-sm font-bold mb-1">Criterios Genéricos de Programa</h5>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Reduce la presión sobre los alumnos más jóvenes centrándose en alrededor de 10 aspectos generales transferibles entre asignaturas.</p>
+              </div>
+
+              <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide block mb-1">Ruta PAI 4–5</span>
+                <h5 class="text-sm font-bold mb-1">Criterios Específicos de Asignatura</h5>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Familiariza al alumnado con la rigurosidad conceptual de cara al Bachillerato Internacional (DP/CP) con rúbricas de asignatura.</p>
+              </div>
+            </div>
+            
+            <div class="bg-indigo-50/50 dark:bg-indigo-950/30 p-4 rounded-xl text-xs text-indigo-600 dark:text-indigo-300">
+              <strong>Decisión del centro:</strong> El equipo directivo del colegio tiene la libertad total de elegir las rutas, tiempos y transiciones que mejor se adapten a sus necesidades y recursos.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12 mt-16 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <p class="text-sm text-slate-500 dark:text-slate-400">
+        Basado en publicaciones oficiales del Bachillerato Internacional (IB). Creado de manera independiente con fines informativos y de desarrollo profesional.
+      </p>
+      <div class="flex items-center justify-center space-x-4 text-xs text-slate-400 dark:text-slate-500">
+        <span>Sin afiliación oficial con el IB.</span>
+        <span>&bull;</span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts for interactivity -->
+  <script>
+    // Lucide Icon Init
+    lucide.createIcons();
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // 3. Integrated Core Tab Switcher
+    function switchTab(tabId) {
+      // Hide all content blocks
+      document.querySelectorAll('.tab-content').forEach(block => {
+        block.classList.add('hidden');
+        block.classList.remove('block');
+      });
+      // Show targeted block
+      const target = document.getElementById(tabId);
+      target.classList.remove('hidden');
+      target.classList.add('block');
+
+      // Update button styling
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'dark:bg-slate-900', 'shadow-sm', 'text-brand-600', 'dark:text-brand-400');
+        btn.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:text-slate-900', 'dark:hover:text-white');
+      });
+      const activeBtn = document.getElementById('btn-' + tabId);
+      activeBtn.classList.add('bg-white', 'dark:bg-slate-900', 'shadow-sm', 'text-brand-600', 'dark:text-brand-400');
+    }
+
+    // 5. Interactive Concept Explorer Data (Translated to Spanish)
+    const conceptData = {
+      ll: [
+        { name: "Audiencia", shared: true },
+        { name: "Personaje", shared: false },
+        { name: "Conexión", shared: true },
+        { name: "Contexto", shared: true },
+        { name: "Creatividad", shared: true },
+        { name: "Género", shared: false },
+        { name: "Perspectiva", shared: true },
+        { name: "Propósito", shared: true },
+        { name: "Escenario", shared: false },
+        { name: "Estructura", shared: true },
+        { name: "Estilo", shared: true },
+        { name: "Tema", shared: false }
+      ],
+      la: [
+        { name: "Audiencia", shared: true },
+        { name: "Comunicación", shared: true },
+        { name: "Conexión", shared: true },
+        { name: "Contexto", shared: true },
+        { name: "Convenciones", shared: false },
+        { name: "Creatividad", shared: true },
+        { name: "Cultura", shared: false },
+        { name: "Significado", shared: false },
+        { name: "Punto de vista", shared: false },
+        { name: "Propósito", shared: true },
+        { name: "Registro", shared: false },
+        { name: "Elección de palabras", shared: false }
+      ],
+      is: [
+        { name: "Causalidad", shared: false },
+        { name: "Cambio", shared: true },
+        { name: "Conflicto", shared: false },
+        { name: "Intercambio", shared: false },
+        { name: "Justicia", shared: false },
+        { name: "Globalización", shared: false },
+        { name: "Gobernanza", shared: false },
+        { name: "Interdependencia", shared: false },
+        { name: "Localidad", shared: false },
+        { name: "Perspectiva", shared: true },
+        { name: "Recursos", shared: true },
+        { name: "Sostenibilidad", shared: true }
+      ],
+      sci: [
+        { name: "Equilibrio", shared: true },
+        { name: "Cambio", shared: true },
+        { name: "Energía", shared: true },
+        { name: "Entorno", shared: true },
+        { name: "Prueba / Evidencia", shared: false },
+        { name: "Forma", shared: true },
+        { name: "Función", shared: true },
+        { name: "Modelos", shared: true },
+        { name: "Movimiento", shared: true },
+        { name: "Relaciones", shared: true },
+        { name: "Sostenibilidad", shared: true },
+        { name: "Sistemas", shared: true }
+      ],
+      math: [
+        { name: "Cambio", shared: true },
+        { name: "Equivalencia", shared: false },
+        { name: "Generalización", shared: false },
+        { name: "Modelos", shared: true },
+        { name: "Patrones", shared: false },
+        { name: "Cantidad", shared: false },
+        { name: "Relaciones", shared: true },
+        { name: "Representación", shared: false },
+        { name: "Simplificación", shared: false },
+        { name: "Espacio", shared: false },
+        { name: "Sistemas", shared: true },
+        { name: "Validez", shared: false }
+      ],
+      arts: [
+        { name: "Estética", shared: false },
+        { name: "Audiencia", shared: true },
+        { name: "Límites", shared: false },
+        { name: "Cambio", shared: true },
+        { name: "Comunicación", shared: true },
+        { name: "Composición", shared: false },
+        { name: "Expresión", shared: false },
+        { name: "Identidad", shared: false },
+        { name: "Interpretación", shared: false },
+        { name: "Juego", shared: false },
+        { name: "Estructura", shared: true },
+        { name: "Estilo", shared: true }
+      ],
+      phe: [
+        { name: "Equilibrio", shared: true },
+        { name: "Cambio", shared: true },
+        { name: "Elección", shared: false },
+        { name: "Comunicación", shared: true },
+        { name: "Desarrollo", shared: true },
+        { name: "Energía", shared: true },
+        { name: "Entorno", shared: true },
+        { name: "Función", shared: true },
+        { name: "Movimiento", shared: true },
+        { name: "Perspectiva", shared: true },
+        { name: "Relaciones", shared: true },
+        { name: "Sistemas", shared: true }
+      ],
+      design: [
+        { name: "Adaptación", shared: false },
+        { name: "Colaboración", shared: false },
+        { name: "Comunicación", shared: true },
+        { name: "Comunidades", shared: false },
+        { name: "Desarrollo", shared: true },
+        { name: "Evaluación", shared: false },
+        { name: "Forma", shared: true },
+        { name: "Función", shared: true },
+        { name: "Innovación", shared: false },
+        { name: "Perspectiva", shared: true },
+        { name: "Recursos", shared: true },
+        { name: "Sistemas", shared: true }
+      ]
+    };
+
+    function selectSubject(subjectId) {
+      // Remove active states from buttons
+      document.querySelectorAll('.sub-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-50', 'border-brand-200', 'text-brand-700', 'dark:bg-brand-950', 'dark:border-brand-900', 'dark:text-brand-300');
+        btn.classList.add('border-slate-200', 'dark:border-slate-800', 'text-slate-600', 'dark:text-slate-400');
+      });
+
+      // Set current active button
+      const activeBtn = document.getElementById('sub-' + subjectId);
+      activeBtn.classList.remove('border-slate-200', 'dark:border-slate-800', 'text-slate-600', 'dark:text-slate-400');
+      activeBtn.classList.add('bg-brand-50', 'border-brand-200', 'text-brand-700', 'dark:bg-brand-950', 'dark:border-brand-900', 'dark:text-brand-300');
+
+      // Rebuild Concept Grid
+      const grid = document.getElementById('concept-grid');
+      grid.innerHTML = ''; // Reset content
+      
+      const concepts = conceptData[subjectId];
+      concepts.forEach(concept => {
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl border flex flex-col justify-between items-start transition cursor-default ${
+          concept.shared 
+          ? 'bg-emerald-50/30 border-emerald-500/30 dark:bg-emerald-950/20 dark:border-emerald-900/50 hover:border-emerald-500 hover:shadow-sm' 
+          : 'bg-slate-50 border-slate-200 dark:bg-slate-950 dark:border-slate-900 hover:border-brand-500 hover:shadow-sm'
+        }`;
+        
+        card.innerHTML = `
+          <span class="text-sm font-bold text-slate-800 dark:text-slate-200">${concept.name}</span>
+          ${concept.shared 
+            ? `<span class="mt-2 text-[10px] bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold px-2 py-0.5 rounded-full">Concepto Compartido</span>` 
+            : `<span class="mt-2 text-[10px] bg-slate-200/80 dark:bg-slate-900 text-slate-500 dark:text-slate-400 px-2 py-0.5 rounded-full">Único del grupo</span>`
+          }
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Default select
+    selectSubject('ll');
+  </script>
+</body>
+</html>
