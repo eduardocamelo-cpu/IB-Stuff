@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYP Enhancements - Building Learning Agility</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen transition-colors duration-300">
+
+  <!-- Header Banner -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-900 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="bg-brand-600 text-white p-2 rounded-xl shadow-lg shadow-brand-500/20">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h1 class="text-lg font-bold bg-gradient-to-r from-brand-600 to-indigo-600 bg-clip-text text-transparent dark:from-brand-500 dark:to-indigo-400">
+              MYP Enhancements
+            </h1>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Building Learning Agility Framework</p>
+          </div>
+        </div>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-1 lg:space-x-2 text-sm font-medium">
+          <a href="#timeline" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Timeline</a>
+          <a href="#four-areas" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">4 Areas</a>
+          <a href="#integrated-core" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Integrated Core</a>
+          <a href="#themes" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Themes</a>
+          <a href="#concepts" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Concepts</a>
+          <a href="#assessment" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Assessment</a>
+        </nav>
+
+        <div class="flex items-center space-x-2">
+          <!-- Dark Mode Toggle -->
+          <button id="themeToggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition" aria-label="Toggle Theme">
+            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+            <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+          
+          <!-- Mobile Menu Button -->
+          <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 px-4 py-3 space-y-1">
+      <a href="#timeline" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">1. Rollout Timeline</a>
+      <a href="#four-areas" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">2. Four Areas of Change</a>
+      <a href="#integrated-core" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">3. Integrated Core</a>
+      <a href="#themes" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">4. MYP Themes</a>
+      <a href="#concepts" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">5. Concepts Explorer</a>
+      <a href="#assessment" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition">6. Assessment Changes</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+    
+    <!-- Hero / Intro -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <span class="px-3 py-1 text-xs font-semibold tracking-wider text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/50 border border-brand-200 dark:border-brand-900 rounded-full uppercase">
+        Summary of Future Roadmap
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        MYP Enhancements Infographic
+      </h2>
+      <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        A streamlined, visual guide summarizing the key structural, pedagogical, and system upgrades designed to increase agency and reduce rigidity.
+      </p>
+    </div>
+
+    <!-- 1. Timeline Section -->
+    <section id="timeline" class="scroll-mt-24 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 dark:border-slate-800/50 transition">
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-6 border-b border-slate-100 dark:border-slate-800">
+        <div class="space-y-1">
+          <div class="flex items-center space-x-2 text-brand-600 dark:text-brand-400">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+            <span class="text-sm font-bold uppercase tracking-wider">Milestones</span>
+          </div>
+          <h3 class="text-2xl font-bold">1. When Do the Changes Happen?</h3>
+        </div>
+        <p class="text-sm text-slate-500 dark:text-slate-400 max-w-sm mt-2 md:mt-0">
+          The rollout spans multiple years to ensure schools can adapt gracefully to the new pedagogical patterns.
+        </p>
+      </div>
+
+      <!-- Horizontal Timeline for Large Screen / Vertical on Mobile -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- Connecting Line for desktop -->
+        <div class="hidden md:block absolute top-10 left-16 right-16 h-1 bg-slate-100 dark:bg-slate-800 -z-10"></div>
+        
+        <!-- 2027 -->
+        <div class="relative flex flex-col items-center text-center p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition group">
+          <div class="w-14 h-14 rounded-full bg-brand-500/10 border-4 border-white dark:border-slate-900 text-brand-600 dark:text-brand-400 flex items-center justify-center font-extrabold text-lg shadow-md mb-4 group-hover:scale-110 transition duration-300">
+            2027
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">IB Exchange Launches</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            A brand-new, interactive digital platform replaces static PDF guides. New subject guides launch with dynamic, adaptive resources and model units.
+          </p>
+        </div>
+
+        <!-- 2028 -->
+        <div class="relative flex flex-col items-center text-center p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition group">
+          <div class="w-14 h-14 rounded-full bg-emerald-500/10 border-4 border-white dark:border-slate-900 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-extrabold text-lg shadow-md mb-4 group-hover:scale-110 transition duration-300">
+            2028
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">First Teaching</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Schools officially begin implementing the enhanced curriculum framework. New simplified unit planners, updated assessment criteria, and the flexible Integrated Core go live.
+          </p>
+        </div>
+
+        <!-- 2030 -->
+        <div class="relative flex flex-col items-center text-center p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition group">
+          <div class="w-14 h-14 rounded-full bg-indigo-500/10 border-4 border-white dark:border-slate-900 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-extrabold text-lg shadow-md mb-4 group-hover:scale-110 transition duration-300">
+            2030
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">First eAssessments</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            First formal digital assessments under the updated 3-criterion structure. Interactive, media-rich questions debut to evaluate student learning under the fresh paradigms.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Four Areas of Change -->
+    <section id="four-areas" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-indigo-600 dark:text-indigo-400">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Foundations</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">2. Four Areas of Change</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          The program upgrades are divided into four fundamental sections designed to enhance clarity, flexibility, and direct utility for teachers.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-blue-500/50 dark:hover:border-blue-500/30 transition flex flex-col justify-between h-full">
+          <div>
+            <div class="w-12 h-12 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-4 font-bold">
+              📘
+            </div>
+            <h4 class="text-lg font-bold mb-2">Enhanced Programme Guidance</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Clearer global rules with structural flexibility in early years (MYP 1–3), redesigned layouts, and condensed global program aims.
+            </p>
+          </div>
+          <span class="text-xs text-blue-600 dark:text-blue-400 mt-4 font-semibold flex items-center gap-1">Focus: Overall Structure <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/30 transition flex flex-col justify-between h-full">
+          <div>
+            <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-xl flex items-center justify-center mb-4 font-bold">
+              📗
+            </div>
+            <h4 class="text-lg font-bold mb-2">Enhanced Subject Guidance</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Actionable pedagogical suggestions. Shifts from abstract formulas to concrete strategies, making unit planning easier and intuitive.
+            </p>
+          </div>
+          <span class="text-xs text-emerald-600 dark:text-emerald-400 mt-4 font-semibold flex items-center gap-1">Focus: Teaching Practice <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-amber-500/50 dark:hover:border-amber-500/30 transition flex flex-col justify-between h-full">
+          <div>
+            <div class="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 rounded-xl flex items-center justify-center mb-4 font-bold">
+              📊
+            </div>
+            <h4 class="text-lg font-bold mb-2">Enhanced Assessment Model</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Transitioning from 4 to 3 main assessment criteria. Introduces student-centered "I Can" statements and reduced evaluation strands.
+            </p>
+          </div>
+          <span class="text-xs text-amber-600 dark:text-amber-400 mt-4 font-semibold flex items-center gap-1">Focus: Assessment Clarity <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-purple-500/50 dark:hover:border-purple-500/30 transition flex flex-col justify-between h-full">
+          <div>
+            <div class="w-12 h-12 bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-4 font-bold">
+              🌐
+            </div>
+            <h4 class="text-lg font-bold mb-2">Enhanced User Experience</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              IB Exchange interactive portal replaces hundreds of static pages. Teachers gain a dynamic repository of resources and planners.
+            </p>
+          </div>
+          <span class="text-xs text-purple-600 dark:text-purple-400 mt-4 font-semibold flex items-center gap-1">Focus: Platform Delivery <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The Integrated Core -->
+    <section id="integrated-core" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-rose-600 dark:text-rose-400">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Pedagogy</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">3. The Integrated Core</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          The core pillars remain mandatory, but the compliance burden is stripped away. The IB shifts from strict checklists to empowering localized designs.
+        </p>
+      </div>
+
+      <!-- Core Pillars Tabs -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-100 dark:border-slate-800 shadow-sm">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8 bg-slate-100 dark:bg-slate-950 p-1.5 rounded-2xl">
+          <button onclick="switchTab('core-tab-idu')" id="btn-core-tab-idu" class="tab-btn px-4 py-3 rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 bg-white dark:bg-slate-900 shadow-sm text-brand-600 dark:text-brand-400">
+            <span class="hidden sm:inline">1.</span> IDU
+          </button>
+          <button onclick="switchTab('core-tab-atl')" id="btn-core-tab-atl" class="tab-btn px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-2">
+            <span class="hidden sm:inline">2.</span> ATL Skills
+          </button>
+          <button onclick="switchTab('core-tab-ce')" id="btn-core-tab-ce" class="tab-btn px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-2">
+            <span class="hidden sm:inline">3.</span> Community Engagement
+          </button>
+          <button onclick="switchTab('core-tab-projects')" id="btn-core-tab-projects" class="tab-btn px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-2">
+            <span class="hidden sm:inline">4.</span> Projects
+          </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <!-- Tab 1: IDU -->
+        <div id="core-tab-idu" class="tab-content block space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Interdisciplinary Learning</span>
+              <h4 class="text-xl font-bold mt-1">IDU: Formats Unleashed</h4>
+            </div>
+            <span class="bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-teal-200 dark:border-teal-900">Highly Flexible</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            The rigid requirement to block a full traditional, multi-week interdisciplinary unit inside timetables has been dismantled. Schools can design flexible interdisciplinary setups that match their operational environment.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-rose-500 uppercase block mb-1">What remains mandatory:</span>
+              <p class="text-sm font-medium">Conduct and formally assess at least 1 interdisciplinary learning experience per year using the IDU criteria.</p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-emerald-500 uppercase block mb-1">What becomes flexible:</span>
+              <p class="text-sm font-medium">The design format! Choose off-timetable focus weeks, field-trip integrations, custom collaborative labs, or standard split-subject setups.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: ATL -->
+        <div id="core-tab-atl" class="tab-content hidden space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Skill Development</span>
+              <h4 class="text-xl font-bold mt-1">ATL: Simplified Planning</h4>
+            </div>
+            <span class="bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-900">Zero Redundancy</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            The compliance fatigue of planning skills is minimized. Large, complex documentation tables mapping out extensive sub-categories are gone. ATL maps can now be embedded organically in general curriculum documentation.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-slate-500 uppercase block mb-1">5 Core Organizers Stand</span>
+              <p class="text-sm font-medium">The main clusters (Communication, Social, Self-management, Research, and Thinking) stay active as foundational guides.</p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-rose-500 uppercase block mb-1">Sub-Clusters Removed</span>
+              <p class="text-sm font-medium">The detailed sub-categories are completely retired to prevent checklist-style compliance planning by teachers.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: CE -->
+        <div id="core-tab-ce" class="tab-content hidden space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Community Engagement</span>
+              <h4 class="text-xl font-bold mt-1">CE: From Action to Dialogue</h4>
+            </div>
+            <span class="bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-indigo-200 dark:border-indigo-900">Reflexive Shift</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Transitioning away from the traditional checklist "Service as Action" toward genuine relationship building, dialogic interaction, and contextual reflexivity.
+          </p>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+            <div class="space-y-3">
+              <span class="text-xs font-extrabold text-slate-500 uppercase tracking-widest block">4 Condensed Objectives</span>
+              <ol class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-brand-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">1</span> Explore systems & understand personal agency roles.</li>
+                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-brand-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">2</span> Develop dialogue and organic community relations.</li>
+                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-brand-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">3</span> Engage in self-critical, reflective and reflexive actions.</li>
+                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-brand-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">4</span> Design and execute principled, ethical actions.</li>
+              </ol>
+            </div>
+
+            <div class="space-y-3">
+              <span class="text-xs font-extrabold text-slate-500 uppercase tracking-widest block">5 Forms of Engagement</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Advocacy</span>
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Action Research</span>
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Social Entrepreneurship</span>
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Participation</span>
+                <span class="px-3 py-1.5 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800">Community-building</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Projects -->
+        <div id="core-tab-projects" class="tab-content hidden space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">Self-Directed Projects</span>
+              <h4 class="text-xl font-bold mt-1">Community & Personal Projects</h4>
+            </div>
+            <span class="bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-900">Streamlined Process</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            The Community Project (Year 3) has been simplified and redesigned to act as a supportive pathway toward the Personal Project (Year 5).
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-indigo-500 uppercase block mb-1">Community Project (Y3)</span>
+              <p class="text-sm">Formal criteria scoring is retired. Rubric pressure is replaced by showcasing organic artifacts like reflection journals, narratives, and final exhibitions.</p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+              <span class="text-xs font-extrabold text-brand-500 uppercase block mb-1">Personal Project (Y5)</span>
+              <p class="text-sm">Maintains its solid, externally moderated guidance, but gains smoother preparation via the simplified structures in earlier years.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MYP Themes -->
+    <section id="themes" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-emerald-600 dark:text-emerald-400">
+          <i data-lucide="globe" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Inquiry</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">4. Six New MYP Themes</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          Replacing the old "Global Contexts." Themes provide culturally responsive, highly organic, and localized framings to construct units.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Theme 1 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-blue-500"></div>
+          <span class="text-xs font-extrabold text-blue-500 uppercase tracking-widest block mb-1">Theme 1</span>
+          <h4 class="text-base font-bold mb-2">Growing through experiences and belonging</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Explores personal identity, development, values, human relationships, and structural communities.</p>
+        </div>
+
+        <!-- Theme 2 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
+          <span class="text-xs font-extrabold text-emerald-500 uppercase tracking-widest block mb-1">Theme 2</span>
+          <h4 class="text-base font-bold mb-2">Connecting time, place and space</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Focuses on history, environments, geography, lineages, local narratives, and universal connections.</p>
+        </div>
+
+        <!-- Theme 3 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-indigo-500"></div>
+          <span class="text-xs font-extrabold text-indigo-500 uppercase tracking-widest block mb-1">Theme 3</span>
+          <h4 class="text-base font-bold mb-2">Expressing diverse perspectives</h4>
+          <h4 class="text-base font-bold mb-2"></h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Dives into cultural expressions, human beliefs, artistic structures, narratives, values, and diverse outlooks.</p>
+        </div>
+
+        <!-- Theme 4 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-amber-500"></div>
+          <span class="text-xs font-extrabold text-amber-500 uppercase tracking-widest block mb-1">Theme 4</span>
+          <h4 class="text-base font-bold mb-2">Exploring innovations and impacts</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Examines technological developments, scientific breakthroughs, solutions, and their societal footprints.</p>
+        </div>
+
+        <!-- Theme 5 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-rose-500"></div>
+          <span class="text-xs font-extrabold text-rose-500 uppercase tracking-widest block mb-1">Theme 5</span>
+          <h4 class="text-base font-bold mb-2">Examining complexity in systems</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Decodes organizational structures, ecological loops, economies, governmental policies, and global networks.</p>
+        </div>
+
+        <!-- Theme 6 -->
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-purple-500"></div>
+          <span class="text-xs font-extrabold text-purple-500 uppercase tracking-widest block mb-1">Theme 6</span>
+          <h4 class="text-base font-bold mb-2">Shaping the future with hope</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Encourages sustainable pathways, active agency, ethical leadership, and constructive planning.</p>
+        </div>
+      </div>
+
+      <!-- Pedagogy note -->
+      <div class="bg-slate-100 dark:bg-slate-900 p-4 rounded-2xl text-xs sm:text-sm text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-800 flex items-center gap-3">
+        <i data-lucide="info" class="w-5 h-5 text-brand-600 dark:text-brand-400 flex-shrink-0"></i>
+        <span><strong>Implementation Tip:</strong> During planning, the chosen <strong>Theme</strong> works alongside the <strong>Central Idea</strong> to spark lines of inquiry. The Theme frames the human and cultural space, while the Central Idea targets core understandings.</span>
+      </div>
+    </section>
+
+    <!-- 5. Concepts Explorer (Interactive) -->
+    <section id="concepts" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-brand-600 dark:text-brand-400">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Interactive Tool</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">5. Interactive Concepts Explorer</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          Instead of locked "key and related concepts," each subject group is guided by 12 specified concepts. Schools are free to add, modify, or merge them to optimize curriculum links.
+        </p>
+      </div>
+
+      <!-- Interactive Concept Board -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-100 dark:border-slate-800 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Sidebar: Choose Subject -->
+        <div class="lg:col-span-4 space-y-4">
+          <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block">1. Select Subject Group</span>
+          <div class="grid grid-cols-2 lg:grid-cols-1 gap-2" id="subject-selector">
+            <button onclick="selectSubject('ll')" id="sub-ll" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-bold border transition flex items-center justify-between bg-brand-50 border-brand-200 text-brand-700 dark:bg-brand-950 dark:border-brand-900 dark:text-brand-300">
+              Language & Literature <span>L&L</span>
+            </button>
+            <button onclick="selectSubject('la')" id="sub-la" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Language Acquisition <span>LA</span>
+            </button>
+            <button onclick="selectSubject('is')" id="sub-is" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Individuals & Societies <span>I&S</span>
+            </button>
+            <button onclick="selectSubject('sci')" id="sub-sci" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Sciences <span>Sci</span>
+            </button>
+            <button onclick="selectSubject('math')" id="sub-math" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Mathematics <span>Math</span>
+            </button>
+            <button onclick="selectSubject('arts')" id="sub-arts" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Arts <span>Arts</span>
+            </button>
+            <button onclick="selectSubject('phe')" id="sub-phe" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Phys. & Health Education <span>PHE</span>
+            </button>
+            <button onclick="selectSubject('design')" id="sub-design" class="sub-btn w-full text-left px-4 py-3 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition flex items-center justify-between">
+              Design <span>Des</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Side: Display 12 Concepts -->
+        <div class="lg:col-span-8 space-y-4 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider">2. 12 Specified Concepts</span>
+              <span class="text-xs text-slate-400 font-medium">Shared concepts are outlined in <span class="text-emerald-500 font-bold">Green</span></span>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="concept-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-100 dark:border-slate-900 mt-4">
+            <h5 class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2 mb-1">
+              <i data-lucide="shuffle" class="w-4 h-4 text-brand-600"></i> High Cross-Subject Integration
+            </h5>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              In total, <strong>22 concepts</strong> are shared across 2 or more departments, forming a solid conceptual vocabulary for schools and enabling deep, coherent interdisciplinary networks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Assessment Changes -->
+    <section id="assessment" class="scroll-mt-24 space-y-8">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2 text-indigo-600 dark:text-indigo-400">
+          <i data-lucide="check-square" class="w-5 h-5"></i>
+          <span class="text-sm font-bold uppercase tracking-wider">Evaluation</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold">6. Assessment Architecture</h3>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl">
+          The traditional four-criteria system is retired. Evaluation gets streamlined and localized with flexible choice paths.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Universal Changes -->
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 bg-brand-50 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 rounded-xl">
+                <i data-lucide="check-circle" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-xl font-extrabold">Universal Evaluation Enhancements</h4>
+            </div>
+
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold">1</span>
+                <div>
+                  <h5 class="text-sm font-bold">Unified 3-Criterion Model</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">All subject groups shift from 4 criteria to 3 comprehensive criteria: <strong>Investigating</strong>, <strong>Applying</strong>, and <strong>Evaluating</strong>.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold">2</span>
+                <div>
+                  <h5 class="text-sm font-bold">Embedded Command Terms</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Action command definitions are integrated directly into level descriptors; no separate glossaries to memorize.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold">3</span>
+                <div>
+                  <h5 class="text-sm font-bold">Asset-Based "I Can" Language</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Student-friendly success statements replace rigid deficits, promoting self-reflection and goal alignment.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold">4</span>
+                <div>
+                  <h5 class="text-sm font-bold">Broader & Fewer Strands</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Rubrics are simplified by grouping previous strands, dramatically reducing grading overhead.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Flexible Assessment Pathways -->
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-xl">
+                <i data-lucide="git-branch" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-xl font-extrabold">Flexible Assessment Pathways</h4>
+            </div>
+            
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              To ease transition and match student maturity, schools have total autonomy to decide when their students are ready to move from general skill concepts to rigorous, subject-specific criteria.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+                <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wide block mb-1">Years 1–3 Option</span>
+                <h5 class="text-sm font-bold mb-1">Subject-Generic Criteria</h5>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Reduces overwhelm for early learners. Broadens focus to roughly 10 shared transferable criteria strands across subjects.</p>
+              </div>
+
+              <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-900">
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide block mb-1">Years 4–5 Option</span>
+                <h5 class="text-sm font-bold mb-1">Subject-Specific Criteria</h5>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Prepares students for rigorous DP/CP pathways with explicit subject criteria expectations and strands.</p>
+              </div>
+            </div>
+            
+            <div class="bg-indigo-50/50 dark:bg-indigo-950/30 p-4 rounded-xl text-xs text-indigo-600 dark:text-indigo-300">
+              <strong>Key Choice:</strong> The school leadership team holds full autonomy to map transition pathways that best fit their campus, timetables, and student profile readiness.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12 mt-16 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <p class="text-sm text-slate-500 dark:text-slate-400">
+        Based on official IB global conference publications. Created for informational, non-commercial purposes.
+      </p>
+      <div class="flex items-center justify-center space-x-4 text-xs text-slate-400 dark:text-slate-500">
+        <span>No official endorsement implied.</span>
+        <span>&bull;</span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts for interactivity -->
+  <script>
+    // Lucide Icon Init
+    lucide.createIcons();
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // 3. Integrated Core Tab Switcher
+    function switchTab(tabId) {
+      // Hide all content blocks
+      document.querySelectorAll('.tab-content').forEach(block => {
+        block.classList.add('hidden');
+        block.classList.remove('block');
+      });
+      // Show targeted block
+      const target = document.getElementById(tabId);
+      target.classList.remove('hidden');
+      target.classList.add('block');
+
+      // Update button styling
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'dark:bg-slate-900', 'shadow-sm', 'text-brand-600', 'dark:text-brand-400');
+        btn.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:text-slate-900', 'dark:hover:text-white');
+      });
+      const activeBtn = document.getElementById('btn-' + tabId);
+      activeBtn.classList.add('bg-white', 'dark:bg-slate-900', 'shadow-sm', 'text-brand-600', 'dark:text-brand-400');
+    }
+
+    // 5. Interactive Concept Explorer Data
+    const conceptData = {
+      ll: [
+        { name: "Audience", shared: true },
+        { name: "Character", shared: false },
+        { name: "Connection", shared: true },
+        { name: "Context", shared: true },
+        { name: "Creativity", shared: true },
+        { name: "Genre", shared: false },
+        { name: "Perspective", shared: true },
+        { name: "Purpose", shared: true },
+        { name: "Setting", shared: false },
+        { name: "Structure", shared: true },
+        { name: "Style", shared: true },
+        { name: "Theme", shared: false }
+      ],
+      la: [
+        { name: "Audience", shared: true },
+        { name: "Communication", shared: true },
+        { name: "Connection", shared: true },
+        { name: "Context", shared: true },
+        { name: "Conventions", shared: false },
+        { name: "Creativity", shared: true },
+        { name: "Culture", shared: false },
+        { name: "Meaning", shared: false },
+        { name: "Point of view", shared: false },
+        { name: "Purpose", shared: true },
+        { name: "Register", shared: false },
+        { name: "Word choice", shared: false }
+      ],
+      is: [
+        { name: "Causality", shared: false },
+        { name: "Change", shared: true },
+        { name: "Conflict", shared: false },
+        { name: "Exchange", shared: false },
+        { name: "Fairness", shared: false },
+        { name: "Globalization", shared: false },
+        { name: "Governance", shared: false },
+        { name: "Interdependence", shared: false },
+        { name: "Locality", shared: false },
+        { name: "Perspective", shared: true },
+        { name: "Resources", shared: true },
+        { name: "Sustainability", shared: true }
+      ],
+      sci: [
+        { name: "Balance", shared: true },
+        { name: "Change", shared: true },
+        { name: "Energy", shared: true },
+        { name: "Environment", shared: true },
+        { name: "Evidence", shared: false },
+        { name: "Form", shared: true },
+        { name: "Function", shared: true },
+        { name: "Models", shared: true },
+        { name: "Movement", shared: true },
+        { name: "Relationships", shared: true },
+        { name: "Sustainability", shared: true },
+        { name: "Systems", shared: true }
+      ],
+      math: [
+        { name: "Change", shared: true },
+        { name: "Equivalence", shared: false },
+        { name: "Generalization", shared: false },
+        { name: "Models", shared: true },
+        { name: "Patterns", shared: false },
+        { name: "Quantity", shared: false },
+        { name: "Relationships", shared: true },
+        { name: "Representation", shared: false },
+        { name: "Simplification", shared: false },
+        { name: "Space", shared: false },
+        { name: "Systems", shared: true },
+        { name: "Validity", shared: false }
+      ],
+      arts: [
+        { name: "Aesthetics", shared: false },
+        { name: "Audience", shared: true },
+        { name: "Boundaries", shared: false },
+        { name: "Change", shared: true },
+        { name: "Communication", shared: true },
+        { name: "Composition", shared: false },
+        { name: "Expression", shared: false },
+        { name: "Identity", shared: false },
+        { name: "Interpretation", shared: false },
+        { name: "Play", shared: false },
+        { name: "Structure", shared: true },
+        { name: "Style", shared: true }
+      ],
+      phe: [
+        { name: "Balance", shared: true },
+        { name: "Change", shared: true },
+        { name: "Choice", shared: false },
+        { name: "Communication", shared: true },
+        { name: "Development", shared: true },
+        { name: "Energy", shared: true },
+        { name: "Environment", shared: true },
+        { name: "Function", shared: true },
+        { name: "Movement", shared: true },
+        { name: "Perspective", shared: true },
+        { name: "Relationships", shared: true },
+        { name: "Systems", shared: true }
+      ],
+      design: [
+        { name: "Adaptation", shared: false },
+        { name: "Collaboration", shared: false },
+        { name: "Communication", shared: true },
+        { name: "Communities", shared: false },
+        { name: "Development", shared: true },
+        { name: "Evaluation", shared: false },
+        { name: "Form", shared: true },
+        { name: "Function", shared: true },
+        { name: "Innovation", shared: false },
+        { name: "Perspective", shared: true },
+        { name: "Resources", shared: true },
+        { name: "Systems", shared: true }
+      ]
+    };
+
+    function selectSubject(subjectId) {
+      // Remove active states from buttons
+      document.querySelectorAll('.sub-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-50', 'border-brand-200', 'text-brand-700', 'dark:bg-brand-950', 'dark:border-brand-900', 'dark:text-brand-300');
+        btn.classList.add('border-slate-200', 'dark:border-slate-800', 'text-slate-600', 'dark:text-slate-400');
+      });
+
+      // Set current active button
+      const activeBtn = document.getElementById('sub-' + subjectId);
+      activeBtn.classList.remove('border-slate-200', 'dark:border-slate-800', 'text-slate-600', 'dark:text-slate-400');
+      activeBtn.classList.add('bg-brand-50', 'border-brand-200', 'text-brand-700', 'dark:bg-brand-950', 'dark:border-brand-900', 'dark:text-brand-300');
+
+      // Rebuild Concept Grid
+      const grid = document.getElementById('concept-grid');
+      grid.innerHTML = ''; // Reset content
+      
+      const concepts = conceptData[subjectId];
+      concepts.forEach(concept => {
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl border flex flex-col justify-between items-start transition cursor-default ${
+          concept.shared 
+          ? 'bg-emerald-50/30 border-emerald-500/30 dark:bg-emerald-950/20 dark:border-emerald-900/50 hover:border-emerald-500 hover:shadow-sm' 
+          : 'bg-slate-50 border-slate-200 dark:bg-slate-950 dark:border-slate-900 hover:border-brand-500 hover:shadow-sm'
+        }`;
+        
+        card.innerHTML = `
+          <span class="text-sm font-bold text-slate-800 dark:text-slate-200">${concept.name}</span>
+          ${concept.shared 
+            ? `<span class="mt-2 text-[10px] bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold px-2 py-0.5 rounded-full">Shared Concept</span>` 
+            : `<span class="mt-2 text-[10px] bg-slate-200/80 dark:bg-slate-900 text-slate-500 dark:text-slate-400 px-2 py-0.5 rounded-full">Unique to group</span>`
+          }
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Default select
+    selectSubject('ll');
+  </script>
+</body>
+</html>
